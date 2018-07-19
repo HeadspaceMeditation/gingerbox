@@ -1,28 +1,51 @@
 # gingerbox
 
-Membership and eligibility file upload tool for ginger.io clients and partners.
+## Ginger.io Eligibility Files Secure Transfer Instructions
 
-## Sending files programmatically: 
+Ginger.io uses a HIPAA compliant account of Google Drive for secure file transfers of Eligibility Files. This mechanism provides a modern and familiar web interface to upload files from a web front end. In addition, Google Drive provides secure APIs to automate the upload from the backend, much like SFTP.
 
-If you wish to automate your eligibility file transmission, your Ginger.io account manager can send you a utility called gingerbox_upload.sh.  This utility will be accompanied with a credentials.txt file which is sent separately for security purposes.  The utility should work from the command line of any unix or linux machine and can be easily automated.  To upload the file to your google drive, save the credentials.txt file on your computer and use the syntax indicated below to point the uploader at both the credentials file, and the file you wish to upload.  See example command below: 
+## Initial Credentials For Google Drive
+
+Ginger.io does not share the initial credentials for the Google Drive via clear text. Instead, the secure flow starts with the “Password Reset” workflow in Google Drive. Once the email address of the IT contact person is received, Ginger.io initiates the password reset flow and Google Drive sends an email with a Rest Password link. The email looks like the screenshot below. 
+
+#### Sample Email From Google For Password Reset
+![sample password reset email](https://raw.githubusercontent.com/ginger-io/gingerbox/master/gingerbox-password-reset.png "sample password reset email")
+
+The customer IT contact person clicks on the Reset Password button to generate a new password for their account. That password is then used to log into the Google Drive account and upload the Eligibility Files.
+
+* **Website:** [https://drive.google.com](https://drive.google.com)
+* **Username:** _<yourcompany>_@gingerbox.io _(provided to you by Ginger.io, e.g. acme@gingerbox.io)_
+* **Password:** _<the one you had reset above>_
+
+## File Encryption
+
+The **data-at-rest encryption** is a key requirement of HIPAA compliance. Ginger.io used PGP encryption methodology. The Ginger.io PGP **Public** Key is available within this GitHub repository as `gingerio_pgp_pubkey.asc`. Please use this key to encrypt the Eligibility Files before uploading to Google Drive.
+
+## Uploading Eligibility Files To Google Drive
+
+After signing in to Google Drive with `XXX@gingerbox.io` login, the Eligibility File should be uploaded into the folder named **"Eligibility Upload"**.  
+
+Once the upload completes, the file will be processed and then it will be removed from your Google Drive for security reasons.  If there are problems with the data in the file, a failure notification will be delivered by email with a secure link to a document describing the issues with the data.
+
+##Automating Eligibility File Uploads
+
+Much like SFTP, the periodic file upload process can be automated using backend server scripts. Ginger.io provides supporting template scripts to get you started with Google Drive APIs. The scripts use the unix `curl` command to upload files. 
+
+### Script: `gingerbox_upload.sh`
+The `gingerbox_upload.sh` shell script along with credentials in `gingerbox.conf` file (see below) works from the command line of any Unix machine and may be used for automation.  To upload the Eligibility File to Google Drive, save the `gingerbox.conf` file in a secure path and use the syntax below:
 
 ```
-$> ./gingerbox_upload.sh --config credentials.txt file_to_upload.csv 
+$> ./gingerbox_upload.sh --config /path/to/gingerbox.conf /path/to/eligfile.csv 
 ```
 
-The file_to_upload.csv will be uploaded to your google drive account’s Eligibility file upload folder (see _Sending files with Google Drive_ below).  Processing and error reporting will be handled identically to manually uploaded files via google drive.
+The `eligfile.csv` will get uploaded to Google Drive account’s Eligibility File upload folder. Ginger.io will then pick up this file for downstream processing and remove this file once the processing is completed.
 
-## What encryption methods does Ginger.io support?
+If there are problems with the date in the file, a failure notification will be delivered by email with a secure link to a document describing the issues with the data.
 
-We recommend that you encrypt your files before sending them to us.  Encrypt the file with gpg and the provided Ginger.io public key.  Be sure to append the additional file extension “.gpg” to the file so that we can identify and correctly route the file for secure storage and decryption.  
+### Credentials: `gingerbox.conf`
 
-## Do files have to be encrypted before uploading them to Ginger.io?
+The `gingerbox.conf` file contains critical and sensitive credentials of the API access of the Google Drive account provisioned for your organization by Ginger.io. 
 
-Though we strongly encourage file level encryption, all of our delivery methods are encrypted and comply with HIPAA standards.  If you do not wish to encrypt your files prior to transmission we will still accept your unencrypted file via the secure transmission methods we describe in this document. 
+After login into Google Drive, this file will be available inside the home folder. Download this file for your automation needs.
 
-## Sending files with Google Drive
-
-Your account manager will send you an invitation by email that will give you access to your google drive folder <your_org>@gingerbox.io.  
-
-Once you have signed in to Google drive with your gingerbox.io login, you can simply drag your eligibility file into the folder named _Eligibility file upload_.  After the upload completes, the uploaded file will be processed within the hour and will disappear from your google drive _Eligibility upload folder_.  If there was a problem with the file, you will receive a failure notification by email with a link to a document describing issues with the file that may need to be amended.
-
+Please make sure that you always keep it secure and make it available for only to authorized personnel and systems within your organization. In case of any unauthorized access to these credentials, please reach out to Ginger.io immediately to help protect your Eligibility Files and rotate the credentials.
