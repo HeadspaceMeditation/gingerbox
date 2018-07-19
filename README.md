@@ -27,7 +27,7 @@ After signing in to Google Drive with `XXX@gingerbox.io` login, the Eligibility 
 
 Once the upload completes, the file will be processed and then it will be removed from your Google Drive for security reasons.  If there are problems with the data in the file, a failure notification will be delivered by email with a secure link to a document describing the issues with the data.
 
-##Automating Eligibility File Uploads
+## Automating Eligibility File Uploads
 
 Much like SFTP, the periodic file upload process can be automated using backend server scripts. Ginger.io provides supporting template scripts to get you started with Google Drive APIs. The scripts use the unix `curl` command to upload files. 
 
@@ -48,4 +48,4 @@ The `gingerbox.conf` file contains critical and sensitive credentials of the API
 
 After login into Google Drive, this file will be available inside the home folder. Download this file for your automation needs.
 
-Please make sure that you always keep it secure and make it available for only to authorized personnel and systems within your organization. In case of any unauthorized access to these credentials, please reach out to Ginger.io immediately to help protect your Eligibility Files and rotate the credentials.
+Please make sure that you always keep it secure and make it available only to authorized personnel and systems within your organization. In case of any unauthorized access to these credentials, please reach out to Ginger.io immediately to help protect your Eligibility Files and rotate the credentials.
