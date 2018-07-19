@@ -27,14 +27,6 @@ curl_args=" --progress"
 
 set -o errexit -o noclobber -o pipefail
 
-if [ ! -z "$CONFIG" ]
-    then
-    if [ -e "$CONFIG" ]
-    then
-    . ${CONFIG}
-    fi
-fi
-
 # Unpack args.
 while true; do
   case "$1" in
@@ -43,6 +35,14 @@ while true; do
     * ) echo "case *"; break ;;
   esac
 done
+
+if [ ! -z "$CONFIG" ]
+    then
+    if [ -e "$CONFIG" ]
+    then
+    . ${CONFIG}
+    fi
+fi
 
 if [ ! -z "$1" ]
 then
@@ -89,6 +89,7 @@ function uploadFile(){
                 -H "X-Upload-Content-Length: $FILESIZE" \
                 -d "$postData" \
                 "https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable" \
+                --http1.1 \
                 --dump-header - | sed -ne s/"Location: "//p | tr -d '\r\n'`
 
     # Curl command to push the file to ginger box.
