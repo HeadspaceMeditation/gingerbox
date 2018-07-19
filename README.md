@@ -15,7 +15,7 @@ The customer IT contact person clicks on the Reset Password button to generate a
 
 * **Website:** [https://drive.google.com](https://drive.google.com)
 * **Username:** _<yourcompany>_@gingerbox.io _(provided to you by Ginger.io, e.g. acme@gingerbox.io)_
-* **Password:** _<the one you had reset above>_
+* The password is the one you have reset above.
 
 ## File Encryption
 
