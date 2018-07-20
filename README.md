@@ -1,6 +1,6 @@
 # gingerbox
 
-### **Located at:** [https://github.com/ginger-io/gingerbox](https://github.com/ginger-io/gingerbox)
+#### **Located at:** [https://github.com/ginger-io/gingerbox](https://github.com/ginger-io/gingerbox)
 
 ## Ginger.io Eligibility Files Secure Transfer Instructions
 
@@ -25,7 +25,10 @@ The **data-at-rest encryption** is a key requirement of HIPAA compliance. Ginger
 
 ## Uploading Eligibility Files To Google Drive
 
-After signing in to Google Drive with `XXX@gingerbox.io` login, the Eligibility File should be uploaded into the folder named **"Eligibility Upload"**.  
+After signing in to Google Drive with `XXX@gingerbox.io` login, the Eligibility File should be uploaded into the folder named **"ELIGIBILITY UPLOAD"**.  
+
+![google drive home](https://raw.githubusercontent.com/ginger-io/gingerbox/master/google-drive-home.png "google drive home")
+![google drive folder](https://raw.githubusercontent.com/ginger-io/gingerbox/master/google-drive-folder.png "google drive folder")
 
 Once the upload completes, the file will be processed and then it will be removed from your Google Drive for security reasons.  If there are problems with the data in the file, a failure notification will be delivered by email with a secure link to a document describing the issues with the data.
 
@@ -48,6 +51,6 @@ If there are problems with the date in the file, a failure notification will be 
 
 The `gingerbox.conf` file contains critical and sensitive credentials of the API access of the Google Drive account provisioned for your organization by Ginger.io. 
 
-After login into Google Drive, this file will be available inside the home folder. Download this file for your automation needs.
+After login into Google Drive, this file will be available inside the home folder, as shown in the screenshot above. Download this file for your automation needs.
 
 Please make sure that you always keep it secure and make it available only to authorized personnel and systems within your organization. In case of any unauthorized access to these credentials, please reach out to Ginger.io immediately to help protect your Eligibility Files and rotate the credentials.
