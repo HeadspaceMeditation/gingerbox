@@ -8,7 +8,7 @@ Ginger.io uses a HIPAA compliant account of Google Drive for secure file transfe
 
 ## Initial Credentials For Google Drive
 
-Ginger.io does not share the initial credentials for the Google Drive via clear text. Instead, the secure flow starts with the “Password Reset” workflow in Google Drive. Once the email address of the IT contact person is received, Ginger.io initiates the password reset flow and Google Drive sends an email with a Rest Password link. The email looks like the screenshot below. 
+Ginger.io does not share the initial credentials for the Google Drive via clear text. Instead, the secure flow starts with the “Password Reset” workflow in Google Drive. Once the email address of the IT contact person is received, Ginger.io initiates the password reset flow and Google Drive sends an email with a Reset Password link. The email looks like the screenshot below. 
 
 #### Sample Email From Google For Password Reset
 ![sample password reset email](https://raw.githubusercontent.com/ginger-io/gingerbox/master/gingerbox-password-reset.png "sample password reset email")
