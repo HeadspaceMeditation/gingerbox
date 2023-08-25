@@ -1,6 +1,6 @@
 # gingerbox
 
-#### **Located at:** [https://github.com/ginger-io/gingerbox](https://github.com/ginger-io/gingerbox)
+#### **Located at:** [https://github.com/HeadspaceMeditation/gingerbox](https://github.com/HeadspaceMeditation/gingerbox)
 
 ## Ginger.io Eligibility Files Secure Transfer Instructions
 
