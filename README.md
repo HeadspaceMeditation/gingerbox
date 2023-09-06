@@ -11,7 +11,7 @@ Ginger.io uses a HIPAA compliant account of Google Drive for secure file transfe
 Ginger.io does not share the initial credentials for the Google Drive via clear text. Instead, the secure flow starts with the “Password Reset” workflow in Google Drive. Once the email address of the IT contact person is received, Ginger.io initiates the password reset flow and Google Drive sends an email with a Reset Password link. The email looks like the screenshot below. 
 
 #### Sample Email From Google For Password Reset
-![sample password reset email](https://raw.githubusercontent.com/ginger-io/gingerbox/master/gingerbox-password-reset.png "sample password reset email")
+![sample password reset email](https://raw.githubusercontent.com/HeadspaceMeditation/gingerbox/master/gingerbox-password-reset.png "sample password reset email")
 
 The customer IT contact person clicks on the Reset Password button to generate a new password for their account. That password is then used to log into the Google Drive account and upload the Eligibility Files.
 
@@ -27,8 +27,8 @@ The **data-at-rest encryption** is a key requirement of HIPAA compliance. Ginger
 
 After signing in to Google Drive with `XXX@gingerbox.io` login, the Eligibility File should be uploaded into the folder named **"ELIGIBILITY UPLOAD"**.  
 
-![google drive home](https://raw.githubusercontent.com/ginger-io/gingerbox/master/google-drive-home.png "google drive home")
-![google drive folder](https://raw.githubusercontent.com/ginger-io/gingerbox/master/google-drive-folder.png "google drive folder")
+![google drive home](https://raw.githubusercontent.com/HeadspaceMeditation/gingerbox/master/google-drive-home.png "google drive home")
+![google drive folder](https://raw.githubusercontent.com/HeadspaceMeditation/gingerbox/master/google-drive-folder.png "google drive folder")
 
 Once the upload completes, the file will be processed and then it will be removed from your Google Drive for security reasons.  If there are problems with the data in the file, a failure notification will be delivered by email with a secure link to a document describing the issues with the data.
 
